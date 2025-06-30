@@ -1,0 +1,76 @@
+c
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rugshana Madatt - Profile Radar Chart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans flex flex-col items-center min-h-screen">
+  <header class="bg-gray-800 w-full py-6 text-center">
+    <h1 class="text-4xl font-bold">My Profile</h1>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6">
+    <section class="my-8">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Profile Radar Chart</h2>
+      <div class="flex justify-center">
+        <canvas id="profileRadarChart" class="w-full max-w-lg"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const ctx = document.getElementById('profileRadarChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['AI/ML Learner', 'Loves Statistics', 'UCT', 'UNISA', 'NMU'],
+        datasets: [
+          {
+            label: 'Professional/Academic',
+            data: [8, 7, 6, 6, 5], // Adjust these values (0-10) as needed
+            backgroundColor: 'rgba(255, 255, 0, 0.2)', // Yellow fill
+            borderColor: '#FFFF00', // Yellow border
+            pointBackgroundColor: '#FFFF00',
+            borderWidth: 2
+          },
+          {
+            label: 'Personal Interests',
+            data: [9, 7, 8, 6, 7], // Adjust these values (0-10) as needed
+            backgroundColor: 'rgba(173, 216, 230, 0.2)', // Light blue fill
+            borderColor: '#ADD8E6', // Light blue border
+            pointBackgroundColor: '#ADD8E6',
+            borderWidth: 2
+          }
+        ]
+      },
+      options: {
+        scales: {
+          r: {
+            angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
+            grid: { color: 'rgba(255, 255, 255, 0.2)' },
+            pointLabels: { font: { size: 14, color: '#FFFFFF' } },
+            ticks: { beginAtZero: true, max: 10, stepSize: 2, color: '#FFFFFF' }
+          }
+        },
+        plugins: {
+          legend: { labels: { color: '#FFFFFF' } },
+          title: {
+            display: true,
+            text: 'My Profile',
+            color: '#FFFFFF',
+            font: { size: 20 }
+          }
+        }
+      }
+    });
+  </script>
+
+  <footer class="bg-gray-800 w-full py-4 text-center">
+    <p>© 2025 Rugshana Madatt. All rights reserved.</p>
+  </footer>
+</body>
+</html>
